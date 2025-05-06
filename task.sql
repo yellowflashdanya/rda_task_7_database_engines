@@ -11,8 +11,8 @@ CREATE TABLE Countries (
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
 CREATE TABLE GeoIPCache (
     ID INT AUTO_INCREMENT,
-    IPRange VARCHAR(50),
-    CountryID INT,
+    IPRange VARCHAR(50) NOT NULL,
+    CountryID INT NOT NULL,
     PRIMARY KEY (ID),
     FOREIGN KEY (CountryID) REFERENCES Countries(ID)
 ) ENGINE=MEMORY;
@@ -30,8 +30,8 @@ CREATE TABLE ProductDescription (
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 CREATE TABLE Logs (
     ID INT AUTO_INCREMENT,
-    Timestamp DATETIME,
-    Message VARCHAR(50),
+    Timestamp DATETIME NOT NULL,
+    Message VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE=BLACKHOLE;
 
